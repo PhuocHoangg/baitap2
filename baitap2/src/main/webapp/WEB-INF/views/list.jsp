@@ -20,7 +20,7 @@
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="text-primary">Danh sách Cầu Thủ</h2>
-        <a href="${pageContext.request.contextPath}/Cauthu/add" class="btn btn-success">
+        <a href="${pageContext.request.contextPath}/cauthu/add" class="btn btn-success">
             + Thêm Cầu Thủ
         </a>
     </div>
@@ -56,7 +56,7 @@
                                  alt="Ảnh cầu thủ" width="90" height="110" class="player-img"/>
                         </td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/Cauthu/delete/${cauthu.maCauThu}"
+                            <a href="${pageContext.request.contextPath}/cauthu/delete/${cauthu.maCauThu}"
                                class="btn btn-sm btn-danger"
                                onclick="return confirm('Bạn có chắc muốn xóa cầu thủ này?');">
                                 Xóa
