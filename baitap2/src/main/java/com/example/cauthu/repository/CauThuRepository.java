@@ -28,7 +28,7 @@ public class CauThuRepository implements ICauThuRepository{
     @Override
     public CauThu findById(int id) {
         for(CauThu cauThu : cauthuList) {
-            if(id == cauThu.getMaCauThu()){
+            if(id == cauThu.getId()){
                 return cauThu;
             }
         }
@@ -42,6 +42,6 @@ public class CauThuRepository implements ICauThuRepository{
 
     @Override
     public void deleteCauThu(int id) {
-        cauthuList.removeIf(c -> c.getMaCauThu() == id);
+        cauthuList.removeIf(c -> c.getId() == id);
     }
 }

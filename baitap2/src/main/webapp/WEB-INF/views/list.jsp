@@ -44,19 +44,19 @@
                 <c:forEach items="${cauthuList}" var="cauthu" varStatus="status">
                     <tr>
                         <td>${status.count}</td>
-                        <td>${cauthu.maCauThu}</td>
-                        <td>${cauthu.hoTen}</td>
-                        <td>${cauthu.ngaySinh}</td>
-                        <td>${cauthu.kinhNghiem}</td>
+                        <td>${cauthu.id}</td>
+                        <td>${cauthu.name}</td>
+                        <td>${cauthu.birthday}</td>
+                        <td>${cauthu.exprience}</td>
                         <td>
-                            <span class="badge bg-info text-dark">${cauthu.vitri}</span>
+                            <span class="badge bg-info text-dark">${cauthu.location}</span>
                         </td>
                         <td>
                             <img src="${pageContext.request.contextPath}${cauthu.image}"
                                  alt="Ảnh cầu thủ" width="90" height="110" class="player-img"/>
                         </td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/cauthu/delete/${cauthu.maCauThu}"
+                            <a href="${pageContext.request.contextPath}/cauthu/delete/${cauthu.id}"
                                class="btn btn-sm btn-danger"
                                onclick="return confirm('Bạn có chắc muốn xóa cầu thủ này?');">
                                 Xóa

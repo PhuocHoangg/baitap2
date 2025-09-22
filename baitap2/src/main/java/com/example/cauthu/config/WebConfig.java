@@ -9,7 +9,6 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // map URL /images/** tới thư mục /images/ trong webapp
         registry.addResourceHandler("/images/**")
                 .addResourceLocations("/images/");
     }

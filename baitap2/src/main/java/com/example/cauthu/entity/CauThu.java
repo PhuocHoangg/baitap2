@@ -1,71 +1,72 @@
 package com.example.cauthu.entity;
 
-import java.awt.*;
 import java.time.LocalDate;
-import java.util.Locale;
 
 public class CauThu {
-    private  int MaCauThu;
-    private String HoTen;
-    private LocalDate NgaySinh;
-    private String KinhNghiem ;
-    private String Vitri ;
-    private String Image;
+    private int id;
+    private String name;
+    private LocalDate birthday;
+    private String exprience;
+    private String location;
+    private String image;
 
-    public CauThu(int maCauThu, String hoTen, LocalDate ngaySinh, String kinhNghiem, String vitri, String image) {
-        MaCauThu = maCauThu;
-        HoTen = hoTen;
-        NgaySinh = ngaySinh;
-        KinhNghiem = kinhNghiem;
-        Vitri = vitri;
-        Image = image;
+    public CauThu() {
     }
 
-    public int getMaCauThu() {
-        return MaCauThu;
+    public CauThu(int id, String name, LocalDate birthday, String exprience, String location, String image) {
+        this.id = id;
+        this.name = name;
+        this.birthday = birthday;
+        this.exprience = exprience;
+        this.location = location;
+        this.image = image;
     }
 
-    public void setMaCauThu(int maCauThu) {
-        MaCauThu = maCauThu;
+    public int getId() {
+        return id;
     }
 
-    public String getHoTen() {
-        return HoTen;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setHoTen(String hoTen) {
-        HoTen = hoTen;
+    public String getName() {
+        return name;
     }
 
-    public LocalDate getNgaySinh() {
-        return NgaySinh;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setNgaySinh(LocalDate ngaySinh) {
-        NgaySinh = ngaySinh;
+    public LocalDate getBirthday() {
+        return birthday;
     }
 
-    public String getKinhNghiem() {
-        return KinhNghiem;
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
-    public void setKinhNghiem(String kinhNghiem) {
-        KinhNghiem = kinhNghiem;
+    public String getExprience() {
+        return exprience;
     }
 
-    public String getVitri() {
-        return Vitri;
+    public void setExprience(String exprience) {
+        this.exprience = exprience;
     }
 
-    public void setVitri(String vitri) {
-        Vitri = vitri;
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getImage() {
-        return Image;
+        return image;
     }
 
     public void setImage(String image) {
-        Image = image;
+        this.image = image;
     }
 }

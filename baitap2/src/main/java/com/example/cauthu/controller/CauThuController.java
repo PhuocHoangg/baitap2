@@ -3,14 +3,11 @@ package com.example.cauthu.controller;
 import com.example.cauthu.entity.CauThu;
 import com.example.cauthu.service.ICauThuService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.time.LocalDate;
 
 @Controller
 @RequestMapping("/cauthu")
@@ -19,32 +16,26 @@ public class CauThuController {
     @Autowired
     private ICauThuService cauThuService;
 
-
     @GetMapping("/list")
     public ModelAndView showList() {
-        ModelAndView modelAndView = new ModelAndView("list");
-        modelAndView.addObject("cauthuList", cauThuService.findAll());
-        return modelAndView;
+        ModelAndView mav = new ModelAndView("list");
+        mav.addObject("cauthuList", cauThuService.findAll());
+        return mav;
     }
 
+
     @GetMapping("/add")
-    public String showFormAdd() {
+    public String showFormAdd(Model model) {
+        model.addAttribute("cauthu", new CauThu());
         return "add";
     }
 
 
     @PostMapping("/add")
-    public String saveCauThu(@RequestParam("MaCauThu") int MaCauThu,
-                             @RequestParam("HoTen") String HoTen,
-                             @RequestParam("NgaySinh") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate NgaySinh,
-                             @RequestParam("KinhNghiem") String KinhNghiem,
-                             @RequestParam("Vitri") String Vitri,
-                             @RequestParam("Image") String Image,
+    public String saveCauThu(@ModelAttribute("cauthu") CauThu cauThu,
                              RedirectAttributes redirectAttributes) {
-
-        cauThuService.addCauThu(new CauThu(MaCauThu, HoTen, NgaySinh, KinhNghiem, Vitri, Image));
+        cauThuService.addCauThu(cauThu);
         redirectAttributes.addFlashAttribute("mess", "Thêm cầu thủ thành công!");
-
         return "redirect:/cauthu/list";
     }
 
@@ -57,18 +48,18 @@ public class CauThuController {
         return "detail";
     }
 
+
     @GetMapping("/detail/{id:[0-9]+}")
-    public String detail2(@PathVariable(name = "id") int id,
-                          Model model) {
+    public String detail2(@PathVariable(name = "id") int id, Model model) {
         CauThu cauThu = cauThuService.findById(id);
         model.addAttribute("cauthu", cauThu);
         return "detail";
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable("id") int MaCauThu,
+    public String delete(@PathVariable("id") int id,
                          RedirectAttributes redirectAttributes) {
-        cauThuService.deleteCauThu(MaCauThu);
+        cauThuService.deleteCauThu(id);
         redirectAttributes.addFlashAttribute("mess", "Xóa cầu thủ thành công!");
         return "redirect:/cauthu/list";
     }
